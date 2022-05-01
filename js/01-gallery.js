@@ -9,7 +9,7 @@ const insertGalleryItem = (items) => {
   return items
     .map(
       (item) => `<div class="gallery__item">
-            <a class="gallery__link" href="large-image.jpg">
+            <a class="gallery__link" href="${item.original}">
                 <img 
                     class="gallery__image" 
                     src="${item.preview}" 

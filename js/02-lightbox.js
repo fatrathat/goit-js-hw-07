@@ -8,17 +8,15 @@ const refs = {
 const insertGalleryItem = (items) => {
   return items
     .map(
-      (item) => `<a class="gallery__item" href="large-image.jpg">
+      (item) => `<a class="gallery__item" href="${item.original}">
                         <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
                     </a>`
     )
     .join("");
 };
 
-const gallery = new SimpleLightbox(".gallery a");
-
-gallery.on("show.simplelightbox", () => {
-  gallery.open();
-});
-
 refs.gallery.insertAdjacentHTML("beforeend", insertGalleryItem(galleryItems));
+const gallery = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
